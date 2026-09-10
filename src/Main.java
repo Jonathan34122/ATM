@@ -31,16 +31,16 @@ while(running){
             break;
         case 2:
 
-            deposit(Balance, userInput);
+            Balance = deposit(Balance, userInput);
             break;
         case 3:
 
-            withdraw(Balance, userInput);
+            Balance = withdraw(Balance, userInput);
             break;
 
         case 4:
 
-            exit(running);
+            running = exit();
     }
 
 }
@@ -65,7 +65,7 @@ while(running){
 
     }
 
-    public static void deposit(int balance, int amountToDeposit){
+    public static int deposit(int balance, int amountToDeposit){
 
         Scanner scanner = new Scanner(System.in);
 
@@ -74,36 +74,38 @@ while(running){
 
         balance += amountToDeposit;
 
+        return balance;
+
     }
 
-    public static void withdraw(int balance, int amount){
-
-        Scanner scanner = new Scanner(System.in);
+    public static int withdraw(int balance, int amount){
 
         System.out.print("enter amount to be withdrawn: ");
 
-        scanner.nextLine(); // Clear the input buffer
+        Scanner scanner = new Scanner(System.in);
+
+        amount = scanner.nextInt();
 
         if(amount > balance){
 
-            balance -= 15; // insufficient funds charge
+            System.out.print("error: insufficient amount of funds, transaction cancelled\n" +
+                    "$15 charge added to account\n");
 
-            System.out.print("error: insufficient amount of funds\n" +
-                             "$15 charge added to account");
+            return balance -= 15; // insufficient funds charge
 
         }else{
 
-            balance -= amount;
+            System.out.print("\n$" + amount + " successfully withdrawn\n");
 
-            System.out.print("$" + amount + " successfully withdrawn\n");
+            return balance -= amount;
 
         }
 
     }
 
-    public static void exit(boolean running){
+    public static boolean exit(){
 
-        running = false;
+        return false;
 
     }
 
