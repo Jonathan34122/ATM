@@ -35,7 +35,7 @@ while(running){
             break;
         case 3:
 
-            withdraw();
+            withdraw(Balance, userInput);
             break;
 
         case 4:
@@ -61,7 +61,7 @@ while(running){
 
     public static void getBalance(int balance){
 
-        System.out.print(balance);
+        System.out.println(balance);
 
     }
 
@@ -76,9 +76,28 @@ while(running){
 
     }
 
-    public static void withdraw(){
+    public static void withdraw(int balance, int amount){
 
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("enter amount to be withdrawn: ");
+
+        scanner.nextLine(); // Clear the input buffer
+
+        if(amount > balance){
+
+            balance -= 15; // insufficient funds charge
+
+            System.out.print("error: insufficient amount of funds\n" +
+                             "$15 charge added to account");
+
+        }else{
+
+            balance -= amount;
+
+            System.out.print("$" + amount + " successfully withdrawn\n");
+
+        }
 
     }
 
