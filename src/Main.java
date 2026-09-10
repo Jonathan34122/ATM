@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args){
 
-// vars
+// main's vars
 
         boolean running = true;
         int Balance = 1000;
@@ -31,7 +31,7 @@ while(running){
             break;
         case 2:
 
-            deposit();
+            deposit(Balance, userInput);
             break;
         case 3:
 
@@ -65,9 +65,14 @@ while(running){
 
     }
 
-    public static void deposit(){
+    public static void deposit(int balance, int amountToDeposit){
 
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("enter amount to deposit: ");
+        amountToDeposit = scanner.nextInt();
+
+        balance += amountToDeposit;
 
     }
 
