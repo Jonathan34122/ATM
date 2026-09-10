@@ -21,7 +21,27 @@ while(running){
 
     displayMenu();
 
-    String userInput = scanner.nextLine();
+    int userInput = scanner.nextInt();
+
+    switch(userInput){
+
+        case 1:
+
+            getBalance(Balance);
+            break;
+        case 2:
+
+            deposit();
+            break;
+        case 3:
+
+            withdraw();
+            break;
+
+        case 4:
+
+            exit(running);
+    }
 
 }
 
@@ -36,6 +56,30 @@ while(running){
                          "2. Make a Deposit\n" +
                          "3. Withdraw my Funds\n" +
                          "4. Exit\n");
+
+    }
+
+    public static void getBalance(int balance){
+
+        System.out.print(balance);
+
+    }
+
+    public static void deposit(){
+
+
+
+    }
+
+    public static void withdraw(){
+
+
+
+    }
+
+    public static void exit(boolean running){
+
+        running = false;
 
     }
 
