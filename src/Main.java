@@ -31,7 +31,7 @@ while(running){
             break;
         case 2:
 
-            Balance = deposit(Balance, userInput);
+            Balance = deposit(Balance, scanner);
             break;
         case 3:
 
@@ -61,16 +61,14 @@ while(running){
 
     public static void getBalance(int balance){
 
-        System.out.println(balance);
+        System.out.println("$" + balance);
 
     }
 
-    public static int deposit(int balance, int amountToDeposit){
-
-        Scanner scanner = new Scanner(System.in);
+    public static int deposit(int balance, Scanner scanner){
 
         System.out.print("enter amount to deposit: ");
-        amountToDeposit = scanner.nextInt();
+        int amountToDeposit = scanner.nextInt();
 
         balance += amountToDeposit;
 
